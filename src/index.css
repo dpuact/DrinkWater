@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --safe-area-inset-top: env(safe-area-inset-top, 0px);
+  --safe-area-inset-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
+    Arial, 'Noto Sans', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior-y: none;
+}
+
+@layer components {
+  .page-container {
+    @apply min-h-full pb-24 bg-gray-50 dark:bg-gray-900;
+    padding-top: var(--safe-area-inset-top);
+  }
+
+  .app-shell {
+    @apply mx-auto max-w-[480px] min-h-full bg-white dark:bg-gray-800;
+  }
+
+  .btn-primary {
+    @apply flex items-center justify-center rounded-xl bg-primary-500 text-white font-semibold
+           active:scale-95 transition-transform duration-100
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply flex items-center justify-center rounded-xl bg-gray-100 dark:bg-gray-700
+           text-gray-800 dark:text-gray-100 font-semibold
+           active:scale-95 transition-transform duration-100;
+  }
+
+  .btn-danger {
+    @apply flex items-center justify-center rounded-xl bg-red-500 text-white font-semibold
+           active:scale-95 transition-transform duration-100;
+  }
+
+  .card {
+    @apply bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700;
+  }
+
+  .setting-cell {
+    @apply flex items-center justify-between px-4 py-4 bg-white dark:bg-gray-800
+           border-b border-gray-100 dark:border-gray-700 last:border-b-0;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-600
+           bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100
+           focus:outline-none focus:ring-2 focus:ring-primary-500;
+  }
+}
+
+/* Scrollbar hidden on mobile */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
